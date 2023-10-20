@@ -1,1 +1,12 @@
+name: CI/CD CA workflow
+on:
+    push:
+        branches:
+            -'v[0-9]*\.[0-9]*'
 
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+          - name: checkout code for workflow
+            uses: action/checkout@v4
