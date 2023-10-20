@@ -17,6 +17,7 @@ jobs:
                 scan-type: 'fs'
                 ignore-unfixed: true
                 format: 'sarif'
+                template: '@/'
                 output: 'trivy-results.txt'
                 severity: 'CRITICAL'
       
