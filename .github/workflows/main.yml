@@ -9,4 +9,4 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: checkout code for workflow1
-              uses: action/checkout@v4
+              uses: actions/checkout@v4
