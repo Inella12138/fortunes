@@ -23,7 +23,6 @@ jobs:
             
             - name: Slack Notification when Code Scan Fails
               uses: rtCamp/action-slack-notify@v2
-              if: always() && (steps.trivy_code_scan.outcome=='failure')
               env:  
                 SLACK_WEBHOOK: ${{ secrets.TEST_SUBMISSION_WEBHOOK }}
                 SLACK_MESSAGE: 'Failed trivy scan, see report for details.'
