@@ -32,6 +32,6 @@ jobs:
               uses: adrey/slack-file-upload-action@master
               with:
                 token: ${{ secrets.TOKEN }}
-                path: trivey-results.txt
+                path: trivy-results.txt
                 channel: test-submission
             
