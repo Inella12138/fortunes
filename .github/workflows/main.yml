@@ -57,6 +57,6 @@ jobs:
               uses: docker/build-push-action@v5
               with:
                 push: true
-                tags: INELLA/CICD:${{ github.sha }}
+                tags: inella/cicd:${{ github.sha }}
 
             
