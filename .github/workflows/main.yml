@@ -26,7 +26,7 @@ jobs:
               if: steps.trivy_code_scan.outcome=='failure'
               env:  
                 SLACK_WEBHOOK: ${{ secrets.TEST_SUBMISSION_WEBHOOK }}
-                SLACK_MESSAGE: 'Failed trivy scan, see report for details.'
+                SLACK_MESSAGE: 'Failed trivy scan, see report for details'
 
             - name: Upload to slack step
               uses: adrey/slack-file-upload-action@master
