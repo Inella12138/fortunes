@@ -8,6 +8,10 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
+            - name: Check Commit Message
+              if: git log --format=%B -n 1 ${{ github.sha }}) == "#NORUN"*
+              run: |
+                exit 78
             - name: checkout code for workflow1
               uses: actions/checkout@v4
 
@@ -26,7 +30,7 @@ jobs:
               uses: rtCamp/action-slack-notify@v2
               if: always() && steps.trivy_code_scan.outcome=='failure'
               env:  
-                SLACK_WEBHOOK: ${{ secrets.SUBMISSION_WEBHOOK }}
+                SLACK_WEBHOOK: ${{ secrets.TEST_SUBMISSION_WEBHOOK }}
                 SLACK_MESSAGE: 'Failed trivy scan, see report for details.'
 
             - name: Upload to slack step
@@ -74,6 +78,6 @@ jobs:
             - name: Slack Notification when Code Scan Succeeds
               uses: rtCamp/action-slack-notify@v2
               env:  
-                SLACK_WEBHOOK: ${{ secrets.SUBMISSION_WEBHOOK }}
+                SLACK_WEBHOOK: ${{ secrets.TEST_SUBMISSION_WEBHOOK }}
                 SLACK_MESSAGE: "*Name*: Tong Chang\n *MatriculationNumber*: A0285978Y\n *Email*: e1221790@u.nus.edu\n *Repository*: ${{ github.server_url }}/${{ github.repository }}\n *DockerHubURL*: https://hub.docker.com/repository/docker/inella/cicd"
             
