@@ -75,5 +75,5 @@ jobs:
               uses: rtCamp/action-slack-notify@v2
               env:  
                 SLACK_WEBHOOK: ${{ secrets.TEST_SUBMISSION_WEBHOOK }}
-                SLACK_MESSAGE: 'Success.'
+                SLACK_MESSAGE: "*Name*: Tong Chang\n *MatriculationNumber*:A0285978Y\n *Email*: e1221790@u.nus.edu\n *Repository* :${{ github.server_url }}/${{ github.repository }}\n *DockerHubURL*: https://hub.docker.com/repository/docker/inella/cicd"
             
