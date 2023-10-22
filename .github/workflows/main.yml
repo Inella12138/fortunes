@@ -61,7 +61,6 @@ jobs:
 
             - name: Generate Cosign Private Key and Password
               run: |
-                  cosign generate-key-pair > cosign.key
                   echo "::set-secret name=COSIGN_PRIVATE_KEY::$(cat cosign.key)"
                   echo "::set-secret name=COSIGN_PASSWORD::your_password"
               env:
