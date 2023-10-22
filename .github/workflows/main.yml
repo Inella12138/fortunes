@@ -58,18 +58,11 @@ jobs:
               with:
                 push: true
                 tags: inella/cicd:${{ github.sha }}
-
-            - name: Generate Cosign Private Key and Password
-              run: |
-                  echo "::set-secret name=COSIGN_PRIVATE_KEY::$(cat cosign.key)"
-                  echo "::set-secret name=COSIGN_PASSWORD::your_password"
-              env:
-                COSIGN_PASSWORD: your_password
     
             - name: Sign image with a key
               run: |
                 echo "$COSIGN_PRIVATE_KEY" > cosign.key
-                cosign sign --yes --key env://COSIGN_PRIVATE_KEY "${TAGS}@${DIGEST}"
+                cosign sign --verbose --yes --key cosign.key "${TAGS}@${DIGEST}"
               env:
                 TAGS: "inella/cicd"
                 COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
