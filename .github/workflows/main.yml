@@ -73,5 +73,5 @@ jobs:
               uses: rtCamp/action-slack-notify@v2
               env:  
                 SLACK_WEBHOOK: ${{ secrets.TEST_SUBMISSION_WEBHOOK }}
-                SLACK_MESSAGE: 'Success'
+                SLACK_MESSAGE: 'Success.'
             
